@@ -1,0 +1,17 @@
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Aplication.deps.json
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Aplication.dll
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Aplication.pdb
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Domain.dll
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Persistance.dll
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Persistance.pdb
+F:\Nauka\Bloggie\Aplication\bin\Debug\net6.0\Domain.pdb
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.csproj.AssemblyReference.cache
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.GeneratedMSBuildEditorConfig.editorconfig
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.AssemblyInfoInputs.cache
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.AssemblyInfo.cs
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.csproj.CoreCompileInputs.cache
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.csproj.CopyComplete
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.dll
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\refint\Aplication.dll
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\Aplication.pdb
+F:\Nauka\Bloggie\Aplication\obj\Debug\net6.0\ref\Aplication.dll

@@ -1,0 +1,17 @@
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Persistance.deps.json
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Persistance.runtimeconfig.json
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Persistance.dll
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Persistance.pdb
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Domain.dll
+F:\Nauka\Bloggie\Persistance\bin\Debug\net6.0\Domain.pdb
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.csproj.AssemblyReference.cache
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.GeneratedMSBuildEditorConfig.editorconfig
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.AssemblyInfoInputs.cache
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.AssemblyInfo.cs
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.csproj.CoreCompileInputs.cache
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.csproj.CopyComplete
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.dll
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\refint\Persistance.dll
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.pdb
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\Persistance.genruntimeconfig.cache
+F:\Nauka\Bloggie\Persistance\obj\Debug\net6.0\ref\Persistance.dll
