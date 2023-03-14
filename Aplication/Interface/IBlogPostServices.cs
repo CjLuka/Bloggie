@@ -1,6 +1,6 @@
 ﻿using Domain.Models.Domain;
 using Domain.Models.Response;
-using Domain.Models.ViewModel;
+using Domain.Models.ViewModel.BlogPost;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 using Aplication.Interface;
-using Domain.Models.ViewModel;
+using Domain.Models.ViewModel.BlogPost;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +36,7 @@ namespace BloggieWeb.Pages.Admin.Blogs
                 ViewData["Message"] = "Blad";
                 return Page();
             }
-            return RedirectToPage("../index");
+            return RedirectToPage("/index");
         }
     }
 }

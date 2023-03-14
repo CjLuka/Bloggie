@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Models.ViewModel
+namespace Domain.Models.ViewModel.BlogPost
 {
     public class AddBlogPost
     {

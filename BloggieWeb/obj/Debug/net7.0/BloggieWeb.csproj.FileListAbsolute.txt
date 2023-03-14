@@ -1,0 +1,8 @@
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.csproj.AssemblyReference.cache
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.GeneratedMSBuildEditorConfig.editorconfig
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.AssemblyInfoInputs.cache
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.AssemblyInfo.cs
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.csproj.CoreCompileInputs.cache
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.MvcApplicationPartsAssemblyInfo.cache
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.RazorAssemblyInfo.cache
+F:\Nauka\Bloggie\BloggieWeb\obj\Debug\net7.0\BloggieWeb.RazorAssemblyInfo.cs

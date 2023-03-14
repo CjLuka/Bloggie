@@ -2,7 +2,7 @@
 using AutoMapper;
 using Domain.Models.Domain;
 using Domain.Models.Response;
-using Domain.Models.ViewModel;
+using Domain.Models.ViewModel.BlogPost;
 using Persistance.Interfaces;
 using Persistance.Repositories;
 using System;
@@ -23,27 +23,45 @@ namespace Aplication.Services
             _mapper = mapper;
         }
 
+        //dodaj nowy blogpost
         public async Task<ServiceResponse<BlogPost>> AddAsync(AddBlogPost post)
         {
-            var newBlog = _iBlogPostRepository.AddAsync(_mapper.Map<BlogPost>(post));
-            if (newBlog == null)
+            //var newBlog = _iBlogPostRepository.AddAsync(_mapper.Map<BlogPost>(post));
+            //if (newBlog == null)
+            //{
+            //    return new ServiceResponse<BlogPost>()
+            //    {
+            //        Message = "Nie znaleziono zadnego posta",
+            //        Success = false
+            //    };
+            //}
+            //return new ServiceResponse<BlogPost>()
+            //{
+            //    Data = _mapper.Map<BlogPost>(newBlog),
+            //    Message = "Wszystkie posty",
+            //    Success = true
+            //};
+            var mappedBlogPost = _mapper.Map<BlogPost>(post);
+            await _iBlogPostRepository.AddAsync(mappedBlogPost);
+
+            if (mappedBlogPost.id == Guid.Empty)
             {
                 return new ServiceResponse<BlogPost>()
                 {
-                    Message = "Nie znaleziono zadnego posta",
+                    Message = "Nie udalo sie zapisac tego rekordu do bazy danych",
                     Success = false
                 };
             }
             return new ServiceResponse<BlogPost>()
             {
-                Data = _mapper.Map<BlogPost>(newBlog),
-                Message = "Wszystkie posty",
+                Data = mappedBlogPost,
+                Message = "Dodano post",
                 Success = true
             };
         }
 
-
-        public async Task<ServiceResponse<IEnumerable<BlogPost>>> GetAllAsync()//asynchroniczne pobranie wszystkich postów
+        //asynchroniczne pobranie wszystkich postów
+        public async Task<ServiceResponse<IEnumerable<BlogPost>>> GetAllAsync()
         {
             var AllBlogs = await _iBlogPostRepository.GetAllAsync();
             if(AllBlogs == null)

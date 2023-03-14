@@ -1,19 +1,17 @@
 ﻿using AutoMapper;
 using Domain.Models.Domain;
-using Domain.Models.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Models.ViewModel.BlogPost;
 
 namespace Aplication.Mapper
 {
-    public class MappingProfile : Profile
+    public  class MappingProfile : Profile
     {
-        public MappingProfile() 
+        public MappingProfile()
         {
-            CreateMap<BlogPost, AddBlogPost>().ReverseMap();
+            //CreateMap<BlogPost, AddBlogPost>().ReverseMap();
+            CreateMap<AddBlogPost, BlogPost>()
+                .ForMember(d => d.id, o => o.Ignore())
+                .ReverseMap();
         }
     }
 }
