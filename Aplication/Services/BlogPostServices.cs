@@ -26,21 +26,6 @@ namespace Aplication.Services
         //dodaj nowy blogpost
         public async Task<ServiceResponse<BlogPost>> AddAsync(AddBlogPost post)
         {
-            //var newBlog = _iBlogPostRepository.AddAsync(_mapper.Map<BlogPost>(post));
-            //if (newBlog == null)
-            //{
-            //    return new ServiceResponse<BlogPost>()
-            //    {
-            //        Message = "Nie znaleziono zadnego posta",
-            //        Success = false
-            //    };
-            //}
-            //return new ServiceResponse<BlogPost>()
-            //{
-            //    Data = _mapper.Map<BlogPost>(newBlog),
-            //    Message = "Wszystkie posty",
-            //    Success = true
-            //};
             var mappedBlogPost = _mapper.Map<BlogPost>(post);
             await _iBlogPostRepository.AddAsync(mappedBlogPost);
 
@@ -78,6 +63,44 @@ namespace Aplication.Services
                 Message = "Wszystkie posty",
                 Success = true
             };
+        }
+
+        public async Task<ServiceResponse<BlogPost>> UpdateAsync(Guid id)
+        {
+            //var Blog = _iBlogPostRepository.GetAsync(id);
+            //var myBlog = await _iBlogPostRepository.GetAsync(id);
+            
+            //if (myBlog == null)
+            //{
+            //    return new ServiceResponse<BlogPost>()
+            //    {
+            //        Message = "Blog jest nullem",
+            //        Success = false
+            //    };
+            //}
+            var blogFromBase = await _iBlogPostRepository.GetAsync(id);
+            if (blogFromBase == null)
+            {
+                return new ServiceResponse<BlogPost>()
+                {
+                    Message = "Nie znalezionio bloga o takim id",
+                    Success = false
+                };
+            }
+            
+            await _iBlogPostRepository.UpdateAsync(blogFromBase);
+            return new ServiceResponse<BlogPost>()
+            {
+                Data = blogFromBase
+            };
+
+            //await _iBlogPostRepository.UpdateAsync(blogFromBase);
+            //return new ServiceResponse<BlogPost>()
+            //{
+            //    Data = blogPost,
+            //    Message = "Edytowales blog",
+            //    Success = true
+            //};
         }
     }
 }

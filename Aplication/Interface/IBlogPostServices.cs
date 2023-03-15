@@ -13,6 +13,7 @@ namespace Aplication.Interface
     {
         Task<ServiceResponse<IEnumerable<BlogPost>>> GetAllAsync();
         Task<ServiceResponse<BlogPost>> AddAsync(AddBlogPost post);
+        Task<ServiceResponse<BlogPost>> UpdateAsync(Guid id);
         
     }
 }
