@@ -21,9 +21,14 @@ namespace BloggieWeb.Pages.Admin.Blogs
             BlogPost = response.Data;
             return Page();
         }
-        public async Task <IActionResult> OnPostAsync(Guid id)
+        public async Task <IActionResult> OnPostUpdateAsync(Guid id)
         {
             await _blogPostServices.UpdateAsync(BlogPost, id);
+            return RedirectToPage("./List");
+        }
+        public async Task<IActionResult> OnPostDeleteAsync(Guid id)
+        {
+            await _blogPostServices.DeleteAsync(id);
             return RedirectToPage("./List");
         }
     }

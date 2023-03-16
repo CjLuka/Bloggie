@@ -45,6 +45,27 @@ namespace Aplication.Services
             };
         }
 
+        //Usuwanie postu
+        public async Task<ServiceResponse<BlogPost>> DeleteAsync(Guid id)
+        {
+            var blog = await _iBlogPostRepository.GetAsync(id);
+            if (blog == null)
+            {
+                return new ServiceResponse<BlogPost>()
+                {
+                    Message = "Blog nie istnieje",
+                    Success = false
+                };
+            }
+            await _iBlogPostRepository.DeleteAsync(blog);
+            return new ServiceResponse<BlogPost>()
+            {
+                Message = "Usunieto post",
+                Success = true
+            };
+
+        }
+
         //asynchroniczne pobranie wszystkich postów
         public async Task<ServiceResponse<IEnumerable<BlogPost>>> GetAllAsync()
         {
@@ -89,18 +110,18 @@ namespace Aplication.Services
                     Success = false
                 };
             }
-            if (blogFromBase.id == id)
-            {
-                blogFromBase.Heading = blogPost.Heading;
-                blogFromBase.PublishedDate = blogPost.PublishedDate;
-                blogFromBase.PageTitle = blogPost.PageTitle;
-                blogFromBase.Author = blogPost.Author;
-                blogFromBase.Content = blogPost.Content;
-                blogFromBase.FeaturedImageUrl = blogPost.FeaturedImageUrl;
-                blogFromBase.Visible = blogPost.Visible;
-                blogFromBase.UrlHandle = blogPost.UrlHandle;
-                blogFromBase.ShortDescription = blogPost.ShortDescription;
-            }
+            
+            blogFromBase.Heading = blogPost.Heading;
+            blogFromBase.PublishedDate = blogPost.PublishedDate;
+            blogFromBase.PageTitle = blogPost.PageTitle;
+            blogFromBase.Author = blogPost.Author;
+            blogFromBase.Content = blogPost.Content;
+            blogFromBase.FeaturedImageUrl = blogPost.FeaturedImageUrl;
+            blogFromBase.Visible = blogPost.Visible;
+            blogFromBase.UrlHandle = blogPost.UrlHandle;
+            //blogFromBase.ShortDescription = blogPost.ShortDescription;
+
+            
             await _iBlogPostRepository.UpdateAsync(blogFromBase);
             return new ServiceResponse<BlogPost>()
             {

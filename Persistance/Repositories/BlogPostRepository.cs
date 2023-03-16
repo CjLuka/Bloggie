@@ -24,11 +24,17 @@ namespace Persistance.Repositories
             await _bloggieDbContext.SaveChangesAsync();
         }
 
-        public bool Delete(Guid id)
+        public async Task DeleteAsync(BlogPost blogPost)
         {
-            _bloggieDbContext.Remove(id);
-            return true;
+            _bloggieDbContext.Remove(blogPost);
+            await _bloggieDbContext.SaveChangesAsync();
         }
+
+        //public bool Delete(Guid id)
+        //{
+        //    _bloggieDbContext.Remove(id);
+        //    return true;
+        //}
 
         public async Task<IEnumerable<BlogPost>> GetAllAsync()
         {
