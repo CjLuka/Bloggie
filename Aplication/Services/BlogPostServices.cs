@@ -76,20 +76,11 @@ namespace Aplication.Services
             };
         }
 
-        public async Task<ServiceResponse<BlogPost>> UpdateAsync(BlogPost blogPost)
+        //Edytowanie postu
+        public async Task<ServiceResponse<BlogPost>> UpdateAsync(BlogPost blogPost, Guid id)
         {
-            //var Blog = _iBlogPostRepository.GetAsync(id);
-            //var myBlog = await _iBlogPostRepository.GetAsync(id);
-            
-            //if (myBlog == null)
-            //{
-            //    return new ServiceResponse<BlogPost>()
-            //    {
-            //        Message = "Blog jest nullem",
-            //        Success = false
-            //    };
-            //}
-            var blogFromBase = await _iBlogPostRepository.GetAsync(blogPost.id);
+
+            var blogFromBase = await _iBlogPostRepository.GetAsync(blogPost.id);//pobranie postu z bazy po Id
             if (blogFromBase == null)
             {
                 return new ServiceResponse<BlogPost>()
@@ -98,20 +89,23 @@ namespace Aplication.Services
                     Success = false
                 };
             }
-            
+            if (blogFromBase.id == id)
+            {
+                blogFromBase.Heading = blogPost.Heading;
+                blogFromBase.PublishedDate = blogPost.PublishedDate;
+                blogFromBase.PageTitle = blogPost.PageTitle;
+                blogFromBase.Author = blogPost.Author;
+                blogFromBase.Content = blogPost.Content;
+                blogFromBase.FeaturedImageUrl = blogPost.FeaturedImageUrl;
+                blogFromBase.Visible = blogPost.Visible;
+                blogFromBase.UrlHandle = blogPost.UrlHandle;
+                blogFromBase.ShortDescription = blogPost.ShortDescription;
+            }
             await _iBlogPostRepository.UpdateAsync(blogFromBase);
             return new ServiceResponse<BlogPost>()
             {
                 Data = blogFromBase
             };
-
-            //await _iBlogPostRepository.UpdateAsync(blogFromBase);
-            //return new ServiceResponse<BlogPost>()
-            //{
-            //    Data = blogPost,
-            //    Message = "Edytowales blog",
-            //    Success = true
-            //};
         }
     }
 }
