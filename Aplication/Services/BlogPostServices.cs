@@ -65,7 +65,18 @@ namespace Aplication.Services
             };
         }
 
-        public async Task<ServiceResponse<BlogPost>> UpdateAsync(Guid id)
+        public async Task<ServiceResponse<BlogPost>> GetDetailBlogPost(Guid id)
+        {
+            var blog = await _iBlogPostRepository.GetAsync(id);
+            return new ServiceResponse<BlogPost>()
+            {
+                Data= blog,
+                Message = "Twoj blog",
+                Success = true
+            };
+        }
+
+        public async Task<ServiceResponse<BlogPost>> UpdateAsync(BlogPost blogPost)
         {
             //var Blog = _iBlogPostRepository.GetAsync(id);
             //var myBlog = await _iBlogPostRepository.GetAsync(id);
@@ -78,7 +89,7 @@ namespace Aplication.Services
             //        Success = false
             //    };
             //}
-            var blogFromBase = await _iBlogPostRepository.GetAsync(id);
+            var blogFromBase = await _iBlogPostRepository.GetAsync(blogPost.id);
             if (blogFromBase == null)
             {
                 return new ServiceResponse<BlogPost>()
