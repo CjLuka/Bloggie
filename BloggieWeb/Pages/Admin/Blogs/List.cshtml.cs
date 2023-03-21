@@ -1,8 +1,10 @@
 using Aplication.Interface;
 using Domain.Models.Domain;
+using Domain.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.IdentityModel.Tokens;
+using System.Text.Json;
 
 namespace BloggieWeb.Pages.Admin.Blogs
 {
@@ -23,6 +25,11 @@ namespace BloggieWeb.Pages.Admin.Blogs
             if(BlogPosts == null)
             {
                 return NotFound();
+            }
+            var notificationJson = (string)TempData["Notification"];
+            if (notificationJson != null)
+            {
+                ViewData["Notification"] = JsonSerializer.Deserialize<Notification>(notificationJson.ToString());  
             }
             return Page();
         }

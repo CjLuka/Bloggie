@@ -48,7 +48,7 @@ namespace Aplication.Services
         //Usuwanie postu
         public async Task<ServiceResponse<BlogPost>> DeleteAsync(Guid id)
         {
-            var blog = await _iBlogPostRepository.GetAsync(id);
+            var blog = await _iBlogPostRepository.GetByIdAsync(id);
             if (blog == null)
             {
                 return new ServiceResponse<BlogPost>()
@@ -86,9 +86,10 @@ namespace Aplication.Services
             };
         }
 
+        //Pobranie danych na temat postu
         public async Task<ServiceResponse<BlogPost>> GetDetailBlogPost(Guid id)
         {
-            var blog = await _iBlogPostRepository.GetAsync(id);
+            var blog = await _iBlogPostRepository.GetByIdAsync(id);
             return new ServiceResponse<BlogPost>()
             {
                 Data= blog,
@@ -101,7 +102,7 @@ namespace Aplication.Services
         public async Task<ServiceResponse<BlogPost>> UpdateAsync(BlogPost blogPost, Guid id)
         {
 
-            var blogFromBase = await _iBlogPostRepository.GetAsync(blogPost.id);//pobranie postu z bazy po Id
+            var blogFromBase = await _iBlogPostRepository.GetByIdAsync(blogPost.id);//pobranie postu z bazy po Id
             if (blogFromBase == null)
             {
                 return new ServiceResponse<BlogPost>()

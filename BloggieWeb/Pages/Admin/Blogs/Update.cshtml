@@ -8,7 +8,39 @@
     </div>
 </div>
 
-<div>
+@*@{
+    var messageDescription = (string)ViewData["MessageDescription"];
+}
+
+@if (!string.IsNullOrWhiteSpace(messageDescription))
+{
+    <div class="container mb-5">
+        <div class="alert alert-success alert-dismissible fade show mb-5" role="alert">
+            @Html.Raw(messageDescription)
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    
+}*@
+<partial name="Notification">
+
+@{
+    var messageValidation = (string)ViewData["MessageValidation"];
+}
+
+@if (!string.IsNullOrWhiteSpace(messageValidation))
+{
+        <div class="container mb-5">
+            <div class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
+            @Html.Raw(messageValidation)
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+}
+@if (Model.BlogPost != null)
+{
+    <div>
     <div class="container">
         <form method="post">
             <div class="mb-3">
@@ -69,3 +101,15 @@
         </form>
     </div>
 </div>
+}
+else
+{
+    <div class="container">
+        <p>Blog Post Not Found</p>
+    </div>
+}
+    @section Scripts{
+        <script>
+            var editor = new FroalaEditor('#content');
+        </script>
+    }

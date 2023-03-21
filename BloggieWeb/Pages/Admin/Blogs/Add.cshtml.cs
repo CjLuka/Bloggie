@@ -1,10 +1,12 @@
 using Aplication.Interface;
+using Domain.Models.ViewModel;
 using Domain.Models.ViewModel.BlogPost;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Persistance.Data;
+using System.Text.Json;
 
 namespace BloggieWeb.Pages.Admin.Blogs
 {
@@ -20,23 +22,39 @@ namespace BloggieWeb.Pages.Admin.Blogs
         public AddBlogPost AddBlogPostRequest { get; set; }
         public void OnGet()
         {
-
+            
         }
         public async Task<IActionResult> OnPost()
         {
             
-            if (AddBlogPostRequest.Heading.IsNullOrEmpty()) 
+            if (AddBlogPostRequest.Heading.IsNullOrEmpty()|| AddBlogPostRequest.Author.IsNullOrEmpty() || 
+                AddBlogPostRequest.Content.IsNullOrEmpty() || AddBlogPostRequest.FeaturedImageUrl.IsNullOrEmpty() || 
+                AddBlogPostRequest.PageTitle.IsNullOrEmpty() || AddBlogPostRequest.ShortDescription.IsNullOrEmpty() || 
+                AddBlogPostRequest.UrlHandle.IsNullOrEmpty()) 
             {
-                ViewData["Message"] = "Produkt jest nullem";
+                var notification = new Notification
+                {
+                    Type = Domain.Models.Enum.NotificationType.Error,
+                    Message = "Complete all required fields!"
+                    
+                };
+                TempData["Notification"] = JsonSerializer.Serialize(notification);
+                //ViewData["MessageValidation"] = "Complete all required fields!";
                 return Page();
             }
             var newBlog = await _blogPostServices.AddAsync(AddBlogPostRequest);
             if (!newBlog.Success)
             {
-                ViewData["Message"] = "Blad";
+                ViewData["Message"] = "Error";
                 return Page();
             }
-            return RedirectToPage("/index");
+            var notification1 = new Notification 
+            { 
+                Type = Domain.Models.Enum.NotificationType.Success,
+                Message = "New blog created!"
+            };
+            TempData["Notification"] = JsonSerializer.Serialize(notification1);
+            return RedirectToPage("./List");
         }
     }
 }

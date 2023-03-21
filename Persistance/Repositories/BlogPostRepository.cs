@@ -42,7 +42,7 @@ namespace Persistance.Repositories
             return blogPosts;
         }
 
-        public async Task<BlogPost> GetAsync(Guid id)
+        public async Task<BlogPost> GetByIdAsync(Guid id)
         {
             var blogPost = await _bloggieDbContext.BlogPosts.FindAsync(id);
             return blogPost;

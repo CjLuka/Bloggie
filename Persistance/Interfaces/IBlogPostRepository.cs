@@ -14,6 +14,6 @@ namespace Persistance.Interfaces
         Task DeleteAsync(BlogPost blogPost);
         //bool Delete(Guid id);
         Task<IEnumerable<BlogPost>> GetAllAsync();
-        Task <BlogPost> GetAsync(Guid id);
+        Task <BlogPost> GetByIdAsync(Guid id);
     }
 }
