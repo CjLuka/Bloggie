@@ -20,6 +20,8 @@ namespace BloggieWeb.Pages.Admin.Blogs
 
         [BindProperty]
         public AddBlogPost AddBlogPostRequest { get; set; }
+        [BindProperty]
+        public IFormFile FeaturedImage { get; set; }
         public void OnGet()
         {
             
@@ -39,7 +41,7 @@ namespace BloggieWeb.Pages.Admin.Blogs
                     
                 };
                 TempData["Notification"] = JsonSerializer.Serialize(notification);
-                //ViewData["MessageValidation"] = "Complete all required fields!";
+                ViewData["MessageValidation"] = "Complete all required fields!";
                 return Page();
             }
             var newBlog = await _blogPostServices.AddAsync(AddBlogPostRequest);

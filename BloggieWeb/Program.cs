@@ -15,6 +15,8 @@ builder.Services.AddDbContext<BloggieDbContext>(options =>
 options.UseSqlServer(
     builder.Configuration.GetConnectionString("BloggieDbConnectionString")));
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
+builder.Services.AddScoped<IImageRepository, ImageRepositoryCloudinary>();
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 builder.Services.AddScoped<IBlogPostServices, BlogPostServices>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -39,5 +41,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();

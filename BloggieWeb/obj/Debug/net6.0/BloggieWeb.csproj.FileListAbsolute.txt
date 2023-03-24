@@ -93,3 +93,5 @@ F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\Aplication.dll
 F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\Aplication.pdb
 F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\AutoMapper.dll
 F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\CloudinaryDotNet.dll
+F:\Nauka\Bloggie\BloggieWeb\bin\Debug\net6.0\Newtonsoft.Json.dll
