@@ -12,7 +12,7 @@ namespace BloggieWeb.Controllers
 
         public ImagesController(IImageRepository imageRepository) 
         {
-            _imageRepository= imageRepository;
+            _imageRepository = imageRepository;
         }
         [HttpPost]
         public async Task <IActionResult> UploadAsync(IFormFile file)

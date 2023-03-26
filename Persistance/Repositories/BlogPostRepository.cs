@@ -17,7 +17,20 @@ namespace Persistance.Repositories
         {
             _bloggieDbContext = bloggieDbContext;
         }
-
+        public async Task<BlogPost> GetByUrlAsync(string urlHandle)
+        {
+            return await _bloggieDbContext.BlogPosts.FirstOrDefaultAsync(x => x.UrlHandle == urlHandle);
+        }
+         public async Task<BlogPost> GetByIdAsync(Guid id)
+         {
+            var blogPost = await _bloggieDbContext.BlogPosts.FindAsync(id);
+            return blogPost;
+         }
+         public async Task<IEnumerable<BlogPost>> GetAllAsync()
+         {
+            var blogPosts = await _bloggieDbContext.BlogPosts.ToListAsync();
+            return blogPosts;
+         }
         public async Task AddAsync(BlogPost blogPost)
         {
             await _bloggieDbContext.AddAsync(blogPost);
@@ -36,17 +49,9 @@ namespace Persistance.Repositories
         //    return true;
         //}
 
-        public async Task<IEnumerable<BlogPost>> GetAllAsync()
-        {
-            var blogPosts = await _bloggieDbContext.BlogPosts.ToListAsync();
-            return blogPosts;
-        }
+        
 
-        public async Task<BlogPost> GetByIdAsync(Guid id)
-        {
-            var blogPost = await _bloggieDbContext.BlogPosts.FindAsync(id);
-            return blogPost;
-        }
+        
 
         public async Task UpdateAsync(BlogPost blogPost)
         {

@@ -19,6 +19,8 @@ namespace BloggieWeb.Pages.Admin.Blogs
         [BindProperty]
         public BlogPost BlogPost { get; set; }
 
+        [BindProperty]
+        public IFormFile FeaturedImage { get; set; }
 
         //wyswietlenie postu ktory bedzie edytowany
         public async Task<IActionResult> OnGetAsync(Guid id)

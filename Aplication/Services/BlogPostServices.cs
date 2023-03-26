@@ -98,6 +98,17 @@ namespace Aplication.Services
             };
         }
 
+        public async Task<ServiceResponse<BlogPost>> GetDetailBlogPost(string urlHandle)
+        {
+            var blogPost = await _iBlogPostRepository.GetByUrlAsync(urlHandle);
+            return new ServiceResponse<BlogPost>()
+            {
+                Data = blogPost,
+                Message = "Twoj blog",
+                Success = true
+            };
+        }
+
         //Edytowanie postu
         public async Task<ServiceResponse<BlogPost>> UpdateAsync(BlogPost blogPost, Guid id)
         {
